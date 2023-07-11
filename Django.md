@@ -95,8 +95,36 @@ python manage.py runserver
 
 ---
 
-### 3. 프로젝트 내 앱 생성
+### 3. 프로젝트 내 앱 생성 & settings.py 수정
 
 ```shell
 python manage.py startapp blog  # blog 라는 이름의 App을 현재 프로젝트에 생성
+```
+
+프로젝트에 앱을 생성하는 경우에는 반드시 myapp/app/settings.py 파일을 수정해야 한다.
+
+```python
+## myapp/app/settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',  # 새로운 app 추가 시 반드시 목록에 추가해야 함
+]
+```
+
+### 4. settings.py 초기 설정
+
+위에서 runserver 시 초기 페이지를 보면 영어로 나오는 것을 확인할 수 있다. 프로젝트의 기본 언어를 한국어로 변경하기 위해서는 settings.py를 수정해야 한다.
+
+```python
+
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
+
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 ```
