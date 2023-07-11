@@ -128,3 +128,31 @@ LANGUAGE_CODE = 'ko-kr'
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Seoul'
 ```
+
+### 5. Django URL 연결
+
+Django의 URL은 URL pattern + URL mapping으로 구성된다.
+
+Main app에서는 전체 URL을 관리하고, '/blog' pattern의 URL은 blog app 내부에서 관리한다.
+
+이를 위해 app/urls.py와 blog/urls.py 를 수정해야 한다.
+
+```python
+# app/urls.py
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('blog/', include("blog.urls"))
+]
+```
+
+```python
+# blog/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+]
+
+```
