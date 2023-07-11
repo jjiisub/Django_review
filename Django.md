@@ -4,7 +4,7 @@
 
 ## 2. 환경 세팅
 
-1. 프로젝트를 생성하고자 하는 위치에 가상환경 생성
+### 1. 프로젝트를 생성하고자 하는 위치에 가상환경 생성
 
 ```shell
 mkdir FolderName  # 폴더 생성
@@ -12,7 +12,7 @@ cd FolderName  # 폴더 directory로 이동
 python -m venv MyVenv  # MyVenv라는 이름으로 virtual environment 생성
 ```
 
-2. 생성한 가상환경 활성화
+### 2. 생성한 가상환경 활성화
 
 ```shell
 source venv/bin/activate  # MacOS 기준 -> 윈도우는 명령어가 다름
@@ -24,7 +24,7 @@ source venv/bin/activate  # MacOS 기준 -> 윈도우는 명령어가 다름
 deactivate  # venv 비활성화
 ```
 
-3. 가상환경에 Django 설치
+### 3. 가상환경에 Django 설치
 
 ```shell
 python -m pip install django
@@ -52,7 +52,9 @@ python -m pip install django
 
 ## 3. Django Tutorial
 
-1. Django 프로젝트 생성
+---
+
+### 1. Django 프로젝트 생성
 
 ```shell
 django-admin startproject app . # 현재 위치에 app이라는 이름의 프로젝트 생성
@@ -72,4 +74,29 @@ myapp
   └── venv/
 ```
 
-2.
+```shell
+python manage.py migrate  # Django Project 초기 설정 적용
+```
+
+---
+
+### 2. 프로젝트 실행
+
+```shell
+python manage.py runserver
+```
+
+정상적으로 프로젝트가 실행될 경우, CLI 상에 아래와 같은 결과가 나타난다.
+![runserver](/assets/img/2-2_runserver.png)
+현재 해당 주소의 초기 화면은 다음과 같다.
+![runserver_page](/assets/img/2-2_runserver_page.png)
+
+'Control 키 + C' 를 통해 runserver 명령을 중지시킬 수 있다.
+
+---
+
+### 3. 프로젝트 내 앱 생성
+
+```shell
+python manage.py startapp blog  # blog 라는 이름의 App을 현재 프로젝트에 생성
+```
